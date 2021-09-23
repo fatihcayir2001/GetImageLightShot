@@ -55,20 +55,15 @@ namespace GetImageLightShot
                     doc.LoadHtml(html);
 
 
-                    //string text = string.Format("{0}/{1}",i,urlList.Count); TODO: PROCESS BAR
-
                     a = doc.DocumentNode.SelectSingleNode("//img[@id='screenshot-image']").GetAttributeValue("src", "default");
                     FileInfo fi = new FileInfo(a);
                     string extn = fi.Extension;
                     if (a != null)
                     {
-                        //using (WebClient webClient = new WebClient())
-                        //{
-                        //    webClient.DownloadFile(a, save.FileName);
-                        //}
+                       
+                      
                         DownloadRemoteImageFile(a,  Path.GetFullPath(save.FileName) + Guid.NewGuid() + extn);
                         log.Info("Fotoğraf indirme başarılı");
-                        //@"C:\Users\Fatih\Downloads\test\"
                     }
                     else
                     {   
